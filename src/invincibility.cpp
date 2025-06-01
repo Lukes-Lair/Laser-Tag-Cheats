@@ -39,6 +39,11 @@
 #define TEAM2_PIN       16      // A2 pin
 #define TEAM3_PIN       17      // A3 pin
 
+#define Invincible_pin      18      // A4 pin
+#define Shoots_Self_pin     19      // A5 pin
+#define Rapid_Fire_pin      20      // A6 pin
+#define Blindthings_pin         21      // A7 pin
+
 #pragma endregion PIN_DEFINITIONS
 
 //////////////////////////////////////////////////
@@ -63,8 +68,8 @@ Servo myservo;
 #define SERVO_READY_POS 120       // reduce aggresiveness near end of action
 #define SERVO_HIT_POS 50
 
-#define TRIGGER_COOLDOWN 200      // milliseconds  
-#define HIT_TIMEOUT 4000         // milliseconds      
+#define TRIGGER_COOLDOWN 500      // milliseconds  
+#define HIT_TIMEOUT 10000         // milliseconds      
 
 int team = 1;     // default 
 
@@ -104,6 +109,10 @@ void setup() {
   pinMode(TEAM1_PIN, INPUT_PULLUP);
   pinMode(TEAM2_PIN, INPUT_PULLUP);
   pinMode(TEAM3_PIN, INPUT_PULLUP);
+  pinMode(Invincible_pin, INPUT_PULLUP);
+  pinMode(Rapid_Fire_pin, INPUT_PULLUP);
+  pinMode(Shoots_Self_pin, INPUT_PULLUP);
+  pinMode(Blindthings_pin, INPUT_PULLUP);
 
   if (digitalRead(TEAM1_PIN) == LOW) {
     team = 1;
@@ -125,6 +134,16 @@ void setup() {
     sCommand = 0x36;
     rcvCommand1 = 0x34;
     rcvCommand2 = 0x35;
+  }
+
+  if (digitalRead(Invincible_pin) == LOW) {
+    bool Invincible = true;
+  } else if (digitalRead(Rapid_Fire_pin) == LOW) {
+    bool Rapid_Fire = true;
+  } else if (digitalRead(Blindthings_pin) == LOW) {
+    bool Blindthings = true;
+  } else if (digitalRead(Shoots_Self_pin) == LOW) {
+    bool Shoots_Self = true;
   }
 
   Serial.begin(115200);
