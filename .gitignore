@@ -3,4 +3,4 @@
 include/
 lib/
 test/
-platform.ini
+platformio.ini
