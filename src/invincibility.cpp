@@ -141,15 +141,7 @@ void setup() {
     rcvCommand2 = 0x35;
   }
 
-  if (digitalRead(Invincible_pin) == LOW) {
-    Invincible = true;
-  } else if (digitalRead(Rapid_Fire_pin) == LOW) {
-    Rapid_Fire = true;
-  } else if (digitalRead(Blindthings_pin) == LOW) {
-    Blindthings = true;
-  } else if (digitalRead(Shoots_Self_pin) == LOW) {
-    Shoots_Self = true;
-  }
+  testcheats();
 
   Serial.begin(115200);
   IrReceiver.begin(IR_RECEIVE_PIN, ENABLE_LED_FEEDBACK);
@@ -163,6 +155,7 @@ void setup() {
 void loop() {
   unsigned long currentMillis = millis();
 
+  testcheats();
   handleTrigger(currentMillis);
   handleIRReception();
 }
@@ -175,7 +168,9 @@ void loop() {
 
 // Read Trigger ----------
 void handleTrigger(unsigned long currentMillis) {
-  if (ReadTriggerButton() && buttonWasReleased && currentMillis - previousTriggerMillis >= TRIGGER_COOLDOWN) {
+  if (Rapid_Fire)
+  {
+     if (ReadTriggerButton()) {
     previousTriggerMillis = currentMillis;
     buttonWasReleased = false;
 
@@ -184,6 +179,19 @@ void handleTrigger(unsigned long currentMillis) {
     buttonWasReleased = true;
   } else {
   }
+  } else {
+     if (ReadTriggerButton() && buttonWasReleased && currentMillis - previousTriggerMillis >= TRIGGER_COOLDOWN) {
+    previousTriggerMillis = currentMillis;
+    buttonWasReleased = false;
+
+    sendIR_Pulse();
+  } else if (!ReadTriggerButton()) {
+    buttonWasReleased = true;
+  } else {
+  }
+  }
+  
+ 
 }
 
 // Fire "Shot" ----------
@@ -226,7 +234,15 @@ void markHit() {
 
   // move goggles to darken
   myservo.attach(SERVO_PIN);
-  myservo.write(SERVO_HIT_POS);
+  if (Blindthings == true)
+  {
+    myservo.write(90);
+  } else 
+  {
+    myservo.write(SERVO_HIT_POS); 
+  }
+  
+  
 
   while (millis() - timeoutStartTime < HIT_TIMEOUT) {
 
@@ -256,3 +272,18 @@ bool ReadTriggerButton() {
 }
 #pragma endregion BUTTON_DEBOUNCING
 
+void testcheats() {
+  
+  if (digitalRead(Invincible_pin) == LOW) {
+    Invincible = true;
+  } else { Invincible = false;  } 
+  if (digitalRead(Rapid_Fire_pin) == LOW) {
+    Rapid_Fire = true;
+  } else { Rapid_Fire = false;}
+  if (digitalRead(Blindthings_pin) == LOW) {
+    Blindthings = true;
+  } else { Blindthings = false; }
+   if (digitalRead(Shoots_Self_pin) == LOW) {
+    Shoots_Self = true;
+  } else { Shoots_Self = false;}
+}
