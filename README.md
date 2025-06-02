@@ -1,5 +1,6 @@
 # I HAVE NOT TESTED ANY OF THIS YET... I WILL SOON
 # Laser Tag Cheats
+### All you need is a jumper wire!
 This Hack is like 4 little hacks in one. 4 cheats can be activated in the same way as teams can be picked. You can use the extra green wires from the box. Put one end into Ground(GRD) and the other into one of 4 pins; A4, A5, A6, or A7. You can use any of these at the same time. If you use none of them then the laser tag will work normaly with a few optimizations from me.
 ## A4 | Invincibility
 The name is self-explanatory but in case you are one of those dumbos who chose evil croissants, this cheat makes you unable to be hit(you are basically Neo). This one is pretty obvious when used so be careful when you use it.
