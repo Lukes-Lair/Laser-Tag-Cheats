@@ -214,13 +214,17 @@ void checkPlayerHit() {
   if (Shoots_Self == true){
       if (IrReceiver.decodedIRData.command == rcvCommand1 || IrReceiver.decodedIRData.command == rcvCommand2 || IrReceiver.decodedIRData.command == sCommand) {
     if (millis() - timeoutStartTime > HIT_TIMEOUT + 1000) {
+      if (!Invincible){
       markHit();
+      }
     }
   }
   } else {
     if (IrReceiver.decodedIRData.command == rcvCommand1 || IrReceiver.decodedIRData.command == rcvCommand2 ) {
     if (millis() - timeoutStartTime > HIT_TIMEOUT + 1000) {
+      if (!Invincible){
       markHit();
+      }
     }
   }
   }
@@ -245,7 +249,9 @@ void markHit() {
   
 
   while (millis() - timeoutStartTime < HIT_TIMEOUT) {
-
+    if (Blindthings){
+      handleTrigger(millis());
+    }
     // In last 20% of timeout, begin to move servo towards starting position
     int timeVal = (millis() - timeoutStartTime) / 100;
     if (millis() > timeoutStartTime + (HIT_TIMEOUT * (4.0 / 5.0))) {
