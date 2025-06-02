@@ -7,5 +7,5 @@ The name is self-explanatory but in case you are one of those dumbos who chose e
 This cheat is meant to be activated on the enemy's blaster before the game starts. It enables the ir receiver to receive the signal that your Laser shoots. Therefor the enemy hits themself. It doesn't work every shot as it would make it obvious.
 ## A6 | Beamer
 This cheat disables the delay of the trigger and the need to let go of the button. This allows you to shoot a continuous beam.
-## A7 | ALways shoot + Dim
+## A7 | Always shoot + Dim
 I didn't have a good name for one but it's one of my favorites. When you get shot instead of fully blinding you it only dims it plus it allows you to shoot while the dim is on giving you a major advantage over the other players.
