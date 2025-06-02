@@ -68,8 +68,8 @@ Servo myservo;
 #define SERVO_READY_POS 120       // reduce aggresiveness near end of action
 #define SERVO_HIT_POS 50
 
-#define TRIGGER_COOLDOWN 500      // milliseconds  
-#define HIT_TIMEOUT 10000         // milliseconds      
+#define TRIGGER_COOLDOWN 330      // milliseconds  
+#define HIT_TIMEOUT 5000         // milliseconds      
 
 int team = 1;     // default 
 
