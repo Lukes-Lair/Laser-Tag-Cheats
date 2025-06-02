@@ -80,6 +80,10 @@ unsigned long lastTDebounceTime = 0;        // trigger button debounce time
 int triggerState;                           // trigger debounce result
 bool buttonWasReleased = true;              // release check, no "full auto"
 unsigned long previousTriggerMillis = 0;    // cooldown timestamp between shots
+bool Shoots_Self;
+bool Blindthings;
+bool Rapid_Fire;
+bool Invincible;
 
 // Initialize game timeout variable
 unsigned long timeoutStartTime = - HIT_TIMEOUT - 1000;
@@ -122,6 +126,7 @@ void setup() {
     team = 3;
   }
 
+
   if (team == 1) {
     sCommand = 0x34;
     rcvCommand1 = 0x35;
@@ -137,13 +142,13 @@ void setup() {
   }
 
   if (digitalRead(Invincible_pin) == LOW) {
-    bool Invincible = true;
+    Invincible = true;
   } else if (digitalRead(Rapid_Fire_pin) == LOW) {
-    bool Rapid_Fire = true;
+    Rapid_Fire = true;
   } else if (digitalRead(Blindthings_pin) == LOW) {
-    bool Blindthings = true;
+    Blindthings = true;
   } else if (digitalRead(Shoots_Self_pin) == LOW) {
-    bool Shoots_Self = true;
+    Shoots_Self = true;
   }
 
   Serial.begin(115200);
@@ -198,11 +203,20 @@ void handleIRReception() {
 
 // Check if message is a "shot" from an enemy team ----------
 void checkPlayerHit() {
-  if (IrReceiver.decodedIRData.command == rcvCommand1 || IrReceiver.decodedIRData.command == rcvCommand2) {
+  if (Shoots_Self == true){
+      if (IrReceiver.decodedIRData.command == rcvCommand1 || IrReceiver.decodedIRData.command == rcvCommand2 || IrReceiver.decodedIRData.command == sCommand) {
     if (millis() - timeoutStartTime > HIT_TIMEOUT + 1000) {
       markHit();
     }
   }
+  } else {
+    if (IrReceiver.decodedIRData.command == rcvCommand1 || IrReceiver.decodedIRData.command == rcvCommand2 ) {
+    if (millis() - timeoutStartTime > HIT_TIMEOUT + 1000) {
+      markHit();
+    }
+  }
+  }
+
 }
 
 // Move goggles if hit ----------
