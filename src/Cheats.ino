@@ -41,8 +41,8 @@
 
 #define Invincible_pin      18      // A4 pin
 #define Shoots_Self_pin     19      // A5 pin
-#define Rapid_Fire_pin      20      // A6 pin
-#define Blindthings_pin     21      // A7 pin
+#define Rapid_Fire_pin      10      // D10 pin
+#define Blindthings_pin     11      // D11 pin
 
 #pragma endregion PIN_DEFINITIONS
 
