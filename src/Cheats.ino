@@ -33,7 +33,7 @@
 #define _IR_TIMING_TEST_PIN 7
 
 #define SERVO_PIN       9
-#define TRIGGER_PIN     12
+#define TRIGGER_PIN     10
 
 #define TEAM1_PIN       15      // A1 pin 
 #define TEAM2_PIN       16      // A2 pin
@@ -41,8 +41,8 @@
 
 #define Invincible_pin      18      // A4 pin
 #define Shoots_Self_pin     19      // A5 pin
-#define Rapid_Fire_pin      10      // D10 pin
-#define Blindthings_pin     11      // D11 pin
+#define Rapid_Fire_pin      11      // D11 pin
+#define Blindthings_pin     12      // D12 pin
 
 #pragma endregion PIN_DEFINITIONS
 
@@ -62,7 +62,7 @@ Servo myservo;
 
 #pragma region GAME_PARAMETERS
 // >>>>>>>>>>>>>>>>>>>>>>>>>>> GAME PARAMETERS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-#define DEBOUNCE_DELAY 20
+#define DEBOUNCE_DELAY 0
 
 #define SERVO_INITIAL_POS 150     // how agressively to undarken goggles 
 #define SERVO_READY_POS 120       // reduce aggresiveness near end of action
@@ -237,14 +237,9 @@ void markHit() {
   timeoutStartTime = millis();
 
   // move goggles to darken
-  myservo.attach(SERVO_PIN);
-  if (Blindthings == true)
-  {
-    myservo.write(90);
-  } else 
-  {
-    myservo.write(SERVO_HIT_POS); 
-  }
+  myservo.attach(SERVO_PIN); 
+  myservo.write(SERVO_HIT_POS); 
+  
   
   
 
