@@ -1,4 +1,3 @@
-# I HAVE NOT TESTED ANY OF THIS YET... I WILL SOON
 # Laser Tag Cheats
 ### All you need is 1-4 jumper wire(s)!
 This Hack is like 4 little hacks in one. You Need to move the yellow(Trigger) wire to D10 for this to work. 4 cheats can be activated in the same way as teams can be picked. You can use the extra green wires from the box. Put one end into Ground(GRD) and the other into one of 4 pins; A4, A5, D11, or D12. You can use any of these at the same time. If you use none of them then the laser tag will work normaly with a few optimizations from me.
