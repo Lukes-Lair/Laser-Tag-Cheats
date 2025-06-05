@@ -6,8 +6,8 @@ This Hack is like 4 little hacks in one. You Need to move the yellow(Trigger) wi
 The name is self-explanatory but in case you are one of those dumbos who chose evil croissant, this cheat makes you unable to be hit(you are basically Neo). This one is pretty obvious when used so be careful when you use it.
 ## A5 | Laser Yourself
 This cheat is meant to be activated on the enemy's blaster before the game starts. It enables the ir receiver to receive the signal that your Laser shoots. Therefore the enemy hits themself. It doesn't work every shot as it would make it obvious and IR doesn't work like that.
-## A6 | Beamer
+## D11 | Beamer
 This cheat disables the delay of the trigger and the need to let go of the button. This allows you to shoot a continuous beam around.
-## A7 | Always shoot
-I didn't have a good name for one but it's my favorite. When you get shot it allows you to shoot while the blindness is on giving you a major advantage over the other players. The other players cant shoot you in "blind mode."
+## D12 | Always shoot
+This one is my favorite. When you get shot it allows you to shoot while the blindness is on, giving you a major advantage over the other players. The other players cant shoot you in "blind mode."
 # Have Fun!
